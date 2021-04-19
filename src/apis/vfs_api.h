@@ -1,5 +1,5 @@
 /**
- * @file esp32_vfs_api.h
+ * @file vfs_api.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,14 +9,14 @@
  * 
  */
 
-#ifndef __ESP32_VFS_API__H__
-#define __ESP32_VFS_API__H__
+#ifndef __VFS_API__H__
+#define __VFS_API__H__
 
-#ifdef  ESP32_VFS_FAT_API
-#include "esp32_vfs_fat_api.h"
+#ifdef  VFS_FAT_API
+#include "vfs_fat_api.h"
 #else
 #error "Selected API implementation not detected. Maybe, incorrect file was included."
-#endif  //ESP32_VFS_FAT_API
+#endif  //VFS_FAT_API
 
 inline void vfs_mount();
 inline int  vfs_file_exists(char filename[32]);
@@ -34,9 +34,9 @@ inline void vfs_unmount();
  * 
  */
 inline void vfs_mount(){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     vfs_fat_api_mount();
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
 /**
@@ -46,9 +46,9 @@ inline void vfs_mount(){
  * @return int 1 if file exists 0 otherwise
  */
 inline int  vfs_file_exists(char filename[32]){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     return vfs_fat_file_api_exists(filename);
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
 /**
@@ -58,9 +58,9 @@ inline int  vfs_file_exists(char filename[32]){
  * @param content content
  */
 inline void vfs_write(char filename[32], char *content){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     return vfs_fat_api_write(filename, content);
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
 /**
@@ -70,9 +70,9 @@ inline void vfs_write(char filename[32], char *content){
  * @param buf buffer to read file content
  */
 inline void vfs_read(char filename[32], char *buf){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     return vfs_fat_api_read(filename, buf);
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
 /**
@@ -81,9 +81,9 @@ inline void vfs_read(char filename[32], char *buf){
  * @param filename file name
  */
 inline void vfs_delete(char filename[32]){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     vfs_fat_api_delete(filename);
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
 /**
@@ -91,9 +91,9 @@ inline void vfs_delete(char filename[32]){
  * 
  */
 inline void vfs_unmount(){
-    #ifdef  ESP32_VFS_FAT_API
+    #ifdef  VFS_FAT_API
     vfs_fat_api_unmount();
-    #endif  //ESP32_VFS_FAT_API
+    #endif  //VFS_FAT_API
 }
 
-#endif  //!__ESP32_VFS_API__H__
+#endif  //!__VFS_API__H__

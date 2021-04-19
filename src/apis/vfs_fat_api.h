@@ -1,5 +1,5 @@
 /**
- * @file esp32_vfs_fat_api.h
+ * @file vfs_fat_api.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,8 +9,8 @@
  * 
  */
 
-#ifndef __ESP32_VFS_FAT_API__H__
-#define __ESP32_VFS_FAT_API__H__
+#ifndef __VFS_FAT_API__H__
+#define __VFS_FAT_API__H__
 
 void vfs_fat_api_mount();
 int  vfs_fat_api_file_exists(char filename[32]);
@@ -19,4 +19,4 @@ void vfs_fat_api_read(char filename[32], char *buf);
 void vfs_fat_api_delete(char filename[32]);
 void vfs_fat_api_unmount();
 
-#endif  //!__ESP32_VFS_FAT_API__H__
+#endif  //!__VFS_FAT_API__H__

@@ -1,5 +1,5 @@
 /**
- * @file esp32_vfs_fat_api.c
+ * @file vfs_fat_api.c
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,7 +9,7 @@
  * 
  */
 
-#include "esp32_vfs_fat_api.h"
+#include "vfs_fat_api.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -17,7 +17,7 @@
 #include "esp_vfs_fat.h"
 #include "esp_system.h"
 
-static const char *TAG = "esp32_vfs_fat_api";
+static const char *TAG = "vfs_fat_api";
 
 static wl_handle_t s_wl_handle = WL_INVALID_HANDLE;
 const char *base_path = "/spiflash";
