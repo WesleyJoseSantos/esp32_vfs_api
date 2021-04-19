@@ -47,7 +47,7 @@ inline void vfs_mount(){
  */
 inline int  vfs_file_exists(char filename[32]){
     #ifdef  VFS_FAT_API
-    return vfs_fat_file_api_exists(filename);
+    return vfs_fat_api_file_exists(filename);
     #endif  //VFS_FAT_API
 }
 
