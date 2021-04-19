@@ -35,7 +35,7 @@ inline void vfs_unmount();
  */
 inline void vfs_mount(){
     #ifdef  ESP32_VFS_FAT_API
-    vfs_fat_mount();
+    vfs_fat_api_mount();
     #endif  //ESP32_VFS_FAT_API
 }
 
@@ -47,7 +47,7 @@ inline void vfs_mount(){
  */
 inline int  vfs_file_exists(char filename[32]){
     #ifdef  ESP32_VFS_FAT_API
-    return vfs_fat_file_exists(filename);
+    return vfs_fat_file_api_exists(filename);
     #endif  //ESP32_VFS_FAT_API
 }
 
@@ -59,7 +59,7 @@ inline int  vfs_file_exists(char filename[32]){
  */
 inline void vfs_write(char filename[32], char *content){
     #ifdef  ESP32_VFS_FAT_API
-    return vfs_fat_write(filename, content);
+    return vfs_fat_api_write(filename, content);
     #endif  //ESP32_VFS_FAT_API
 }
 
@@ -71,7 +71,7 @@ inline void vfs_write(char filename[32], char *content){
  */
 inline void vfs_read(char filename[32], char *buf){
     #ifdef  ESP32_VFS_FAT_API
-    return vfs_fat_read(filename, buf);
+    return vfs_fat_api_read(filename, buf);
     #endif  //ESP32_VFS_FAT_API
 }
 
@@ -82,7 +82,7 @@ inline void vfs_read(char filename[32], char *buf){
  */
 inline void vfs_delete(char filename[32]){
     #ifdef  ESP32_VFS_FAT_API
-    vfs_fat_delete(filename);
+    vfs_fat_api_delete(filename);
     #endif  //ESP32_VFS_FAT_API
 }
 
@@ -92,7 +92,7 @@ inline void vfs_delete(char filename[32]){
  */
 inline void vfs_unmount(){
     #ifdef  ESP32_VFS_FAT_API
-    vfs_fat_unmount();
+    vfs_fat_api_unmount();
     #endif  //ESP32_VFS_FAT_API
 }
 

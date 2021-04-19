@@ -22,7 +22,7 @@ static const char *TAG = "esp32_vfs_fat_api";
 static wl_handle_t s_wl_handle = WL_INVALID_HANDLE;
 const char *base_path = "/spiflash";
 
-void vfs_fat_mount(){
+void vfs_fat_api_mount(){
     const esp_vfs_fat_mount_config_t mount_config = {
         .max_files = 4,
         .format_if_mount_failed = true,
@@ -36,7 +36,7 @@ void vfs_fat_mount(){
     }
 }
 
-int  vfs_fat_file_exists(char filename[32]){
+int  vfs_fat_api_file_exists(char filename[32]){
     int ret;
     FILE *f = fopen(filename, "rb");
     ret = f != NULL;
@@ -44,7 +44,7 @@ int  vfs_fat_file_exists(char filename[32]){
     return ret;
 }
 
-void vfs_fat_write(char filename[32], char *content){
+void vfs_fat_api_write(char filename[32], char *content){
     FILE *f = fopen(filename, "wb");
     if (f == NULL) {
         ESP_LOGE(TAG, "Failed to open %s for write.", filename);
@@ -54,7 +54,7 @@ void vfs_fat_write(char filename[32], char *content){
     fclose(f);
 }
 
-void vfs_fat_read(char filename[32], char *buf){
+void vfs_fat_api_read(char filename[32], char *buf){
     FILE *f = fopen(filename, "rb");
     if (f == NULL) {
         ESP_LOGE(TAG, "Failed to open %s for write.", filename);
@@ -69,10 +69,10 @@ void vfs_fat_read(char filename[32], char *buf){
     buf[idx] = 0;
 }
 
-void vfs_fat_delete(char filename[32]){
+void vfs_fat_api_delete(char filename[32]){
     remove(filename);
 }
 
-void vfs_fat_unmount(){
+void vfs_fat_api_unmount(){
     ESP_ERROR_CHECK(esp_vfs_fat_spiflash_unmount(base_path, s_wl_handle));
 }
